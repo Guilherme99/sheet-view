@@ -1,0 +1,30 @@
+<div
+  class="container-page"
+  [ngStyle]="fullScreen ? { display: 'block' } : { display: 'flex' }"
+>
+  <div *ngIf="!this.fullScreen" class="file-input-container">
+    <ng-container>
+      <span>Selecione um documento para visualização: </span>
+    </ng-container>
+    <div class="documents-list">
+      <ul *ngFor="let doc of documentsList">
+        <li
+          (click)="selectedDoc(doc)"
+          [ngClass]="file?.text === doc?.text ? 'active' : ''"
+        >
+          <i class="material-icons">{{ doc.icon }}</i>
+          <span>
+            {{ doc.text }}
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <app-sheet
+    [fullScreen]="fullScreen"
+    [file]="file"
+    [handleChangeFullScreen]="handleChangeFullScreen"
+  >
+  </app-sheet>
+</div>

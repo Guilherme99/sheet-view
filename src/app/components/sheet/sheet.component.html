@@ -1,0 +1,42 @@
+<div
+  class="spreadsheet-container"
+  [ngClass]="this.fullScreen ? 'full' : ''"
+  *ngIf="sheetData.length; else elseBlock"
+>
+  <div class="spreadsheet-container-header">
+    <span>Arquivo: {{ file?.name }}</span>
+    <span>Última atualização:{{ file?.date ?? "Sem data" }}</span>
+  </div>
+  <div class="spreadsheet-content">
+    <div class="header-row">
+      <div class="row-number"></div>
+      <div class="header-cell" *ngFor="let column of columns">
+        <ng-container *ngIf="column">{{ column }}</ng-container>
+      </div>
+    </div>
+    <div class="body">
+      <div class="body-row" *ngFor="let row of sheetData">
+        <div class="row-number">{{ row.rowNumber }}</div>
+        <div class="cell" *ngFor="let cell of row.cells">{{ cell }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="spreadsheet-options" (click)="this?.handleChangeFullScreen()">
+    <i class="material-icons">
+      {{ !fullScreen ? "fullscreen" : "fullscreen_exit" }}
+    </i>
+  </div>
+  <div class="spreadsheet-footer">
+    <span
+      [ngClass]="selectedSheetsName === sheet ? 'active' : ''"
+      *ngFor="let sheet of sheetsName; let indexOfelement = index"
+      (click)="handleChangeSheet(indexOfelement, sheet)"
+      >{{ sheet }}</span
+    >
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="not-found-container">
+    <div colspan="5" class="text-center">Nenhum documento visualizado.</div>
+  </div>
+</ng-template>

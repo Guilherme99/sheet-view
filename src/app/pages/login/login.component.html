@@ -1,0 +1,49 @@
+<div
+  class="container d-flex flex-column justify-content-center align-items-center h-100"
+>
+  <div class="col-6 h-100 d-flex justify-content-center align-items-center">
+    <div class="card shadow round w-100">
+      <div class="card-header">
+        <h3 class="text-center">App Login</h3>
+      </div>
+      <div
+        class="card-body d-flex justify-content-center align-items-center mt-4"
+      >
+        <form>
+          <div class="mb-3">
+            <mat-form-field appearance="outline">
+              <mat-label>Email</mat-label>
+              <input
+                matInput
+                placeholder="user@example.com"
+                [formControl]="email"
+                required
+              />
+              <mat-error *ngIf="email.invalid">{{
+                getErrorMessage()
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-3">
+            <mat-form-field appearance="outline">
+              <mat-label>Senha</mat-label>
+              <input
+                matInput
+                type="password"
+                placeholder="########"
+                [formControl]="password"
+                required
+              />
+              <mat-error *ngIf="password.invalid">{{
+                getErrorMessage()
+              }}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mb-3 float-end">
+            <button class="btn btn-primary">Entrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

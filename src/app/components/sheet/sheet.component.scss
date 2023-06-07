@@ -1,0 +1,156 @@
+.spreadsheet-content {
+  position: relative;
+  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header-row {
+  background-color: #e7e7e7;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.body {
+  height: 95%;
+  position: relative;
+}
+
+.body-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  align-items: center;
+}
+
+.cell {
+  min-width: 10rem;
+  max-width: 10rem;
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.row-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 3rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.body-row:last-child .cell {
+  border-bottom: none;
+}
+
+.body-row:nth-child(even) {
+  background-color: #e7e7e7;
+  width: fit-content;
+}
+
+.spreadsheet-container {
+  max-width: 45vw;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.spreadsheet-container.full {
+  max-width: 100vw !important;
+  width: 100%;
+}
+
+.spreadsheet-container-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.spreadsheet-container-header span {
+  font-size: 0.7rem;
+  padding: 5px 8px;
+}
+
+.spreadsheet-footer {
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  padding: 6px 8px;
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+  overflow-x: auto;
+}
+
+.spreadsheet-footer span:first-child {
+  border: none;
+}
+
+.spreadsheet-footer span {
+  border-left: 1px solid #e7e7e7;
+  cursor: pointer;
+  padding-left: 10px;
+  font-size: 0.75rem;
+}
+
+.spreadsheet-footer span.active {
+  font-weight: bold;
+}
+
+.not-found-container {
+  width: 33vw;
+  /* flex: 1; */
+  /* position: relative; */
+  /* width: 100%; */
+  /* display: flex; */
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
+  height: 92%;
+}
+
+.spreadsheet-container {
+  position: relative;
+  width: 33vw;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 92%;
+}
+
+.not-found-container div {
+  margin: 1rem 0 0 0;
+  height: 100%;
+}
+
+.documents-list {
+  margin-top: 0.5rem;
+}
+
+.spreadsheet-options {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  background-color: #008000;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.spreadsheet-options i {
+  color: #fff;
+}
